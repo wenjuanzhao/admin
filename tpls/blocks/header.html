@@ -139,11 +139,99 @@
         <li class="dropdown" dropdown>
             <a class="dropdown-toggle" dropdown-toggle>
                 <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
-                <span translate="header.navbar.new.NEW">NEW</span>
+                <span >NEW</span>
                 <span class="caret"></span>
             </a>
+            <ul class="dropdown-menu">
+                <li><a href>Projects</a></li>
+                <li><a href>
+                    <span class="badge bg-info pull-right">5</span>
+                    <span >Task</span>
+                </a></li>
+                <li><a href>User</a></li>
+                <li class="divider"></li>
+                <li >
+                    <a href="">
+                        <span class="badge bg-danger pull-right">4</span>
+                        <span >Email</span>
+                    </a>
+                </li>
+            </ul>
         </li>
     </ul>
-
+    <form class="navbar-form navbar-form-sm navbar-left shift"  role="search" >
+     <div class="form-group">
+         <div class="input-group">
+             <input type="text" ng-model="selected" class="form-control input-sm bg-light no-border rounded padder" placeholder="search progetcs">
+             <span class="input-group-btn">
+                 <button class="btn btn-sm bg-light rounded"><i class="fa fa-search"></i></button>
+             </span>
+         </div>
+     </div>
+    </form>
+    <ul class="navbar-nav navbar-right nav">
+        <li class="dropdown hidden-sm" dropdown>
+            <a href class="dropdown-toggle" dropdown-toggle>{{selectLang}}<span class="caret"></span></a>
+            <ul class="dropdown-menu animated fadeInRight w">
+                <li ng-repeat="(langKey,label) in langs">
+                    <a  href="">{{label}}</a>
+                </li>
+            </ul>
+        </li>
+        <li class="hidden-xs">
+            <a ui-fullscreen></a>
+        </li>
+        <li class="dropdown" dropdown>
+            <a href class="dropdown-toggle" dropdown-toggle>
+                <i class="icon-bell fa-fw"></i>
+                <span class="visible-xs-inline">通知</span>
+                <span class="badge badge-sm up bg-danger pull-right-xs">2</span>
+            </a>
+            <div class="dropdown-menu w-xl animated fadeInUp">
+                <div class="panel bg-white">
+                    <div class="panel-heading b-light bg-light">
+                        <strong>你有 <span>2</span>条通知</strong>
+                    </div>
+                    <div class="list-group">
+                        <a href class="media list-group-item">
+                            <span class="pull-left thumb-sm">
+                                <img src="img/a0.jpg" class="img-circle">
+                            </span>
+                            <span class="media-body block m-b-none">
+                                使用了animate.css
+                            </span>
+                            <small class="text-muted">10 分钟以前</small>
+                        </a>
+                        <a href class="media list-group-item">
+                            <span class="media-body block m-b-none">
+                                1.0版本发布
+                            </span>
+                            <small class="text-muted">1小时以前</small>
+                        </a>
+                    </div>
+                    <div class="panel-footer text-sm">
+                        <a class="pull-right"><i class="fa fa-cog"></i></a>
+                        <a >查看所有的通知</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="dropdown" dropdown-toggle>
+            <a class="dropdown-toggle clear" dropdown-toggle>
+                 <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img src="img/a0.jpg" alt="...">
+                <i class="on md b-white bottom"></i>
+              </span>
+                <span class="hidden-sm hidden-md">John.Smith</span> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight w">
+                <li class="wrapper b-b m-b-sm bg-light m-t-n-lg">
+                    <div >
+                        <p>300</p>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
 </div>
 
