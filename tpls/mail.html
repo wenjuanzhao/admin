@@ -1,0 +1,36 @@
+<div ng-controller="MailCtrl" class="hbox-auto-xs hbox-auto-xs hbox ">
+    <div class="col w-md bg-light b-r bg-auto">
+        <div class="wrapper b-b bg">
+            <button class="btn btn-sm btn-default pull-right visible-xs" ui-toggle-class="show" target="#email-menu"><i class="fa fa-bars"></i></button>
+            <a ui-sref="app.mail.compose" class="btn btn-default btn-danger w-xs font-bold">compose</a>
+        </div>
+        <div class="wrapper hidden-sm hidden-xs" id="email-menu">
+            <ul class="nav nav-pills nav-stacked nav-sm">
+                <li ng-repeat="fold in folds" ui-sref-active="active">
+                    <a ui-sref="app.mail.list({fold:fold.filter})">{{fold.name}}</a>
+                </li>
+            </ul>
+            <div class="wrapper">Labels</div>
+            <ul class="nav nav-pills nav-stacked nav-sm">
+                <li ng-repeat="label in labels" ui-sref-active="active">
+                    <a ui-sref="app.mail.list({fold:label.filter})">
+                        <i class="fa fa-fw fa-circle text-muted" color="{{label.color}}" label-color></i>{{label.name}}
+                    </a>
+                </li>
+            </ul>
+            <div class="wrapper">
+                <form name="label">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" placeholder="new label" ng-model="newLabel.name">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default text-muted btn-sm" ng-click="addLabel()">add</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div ui-view></div>
+    </div>
+</div>

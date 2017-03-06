@@ -1078,7 +1078,6 @@ body {
 }
 
 html {
-  background: url('../img/bg.jpg');
   background-attachment: fixed;
   background-size: cover;
 }
@@ -1321,7 +1320,7 @@ html {
   }
   .off-screen {
     position: absolute;
-    top: 50px;
+    top: 0px;
     bottom: 0;
     z-index: 1010;
     display: block !important;

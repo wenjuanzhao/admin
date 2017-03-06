@@ -1959,7 +1959,7 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tab.js v3.3.0
+ * Bootstrap: main.js v3.3.0
  * http://getbootstrap.com/javascript/#tabs
  * ========================================================================
  * Copyright 2011-2014 Twitter, Inc.

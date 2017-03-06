@@ -1,0 +1,24 @@
+<div ng-controller="MailListCtrl">
+    <div class="wrapper bg-light lter b-b">
+        <div class="btn-group pull-right">
+            <button class="btn-default btn btn-bg btn-sm"><i class="fa fa-chevron-left"></i></button>
+            <button class="btn-default btn btn-bg btn-sm"><i class="fa fa-chevron-right"></i></button>
+        </div>
+        <h4>邮件列表</h4>
+    </div>
+    <div class="list-group list-group-lg no-radius m-b-none m-t-n-xs">
+        <li ng-repeat="mail in mails" ng-class="labelClass(mail.label)" class="list-group-item clearfix b-l-3x">
+            <a ui-sref="app.page.profile" class="avatar thumb pull-left m-r">
+                <img src="{{mail.avatar}}">
+            </a>
+            <div class="pull-right text-sm text-muted">
+                <span class="hidden-xs">{{ mail.date }}</span>
+                <i class="fa fa-paperclip ng-hide m-l-sm" ng-show="{{mail.attach}}"></i>
+            </div>
+            <div class="clear">
+                <div><a ui-sref="app.mail.detail({mailId:mail.id})" class="text-md">{{mail.subject}}</a><span class="label bg-light m-l-sm">{{mail.label}}</span></div>
+                <div class="text-ellipsis m-t-xs">{{mail.content | limitTo:100}}</div>
+            </div>
+        </li>
+    </div>
+</div>
