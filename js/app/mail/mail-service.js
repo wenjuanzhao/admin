@@ -5,16 +5,16 @@ app.factory('mails',['$http',function ($http) {
     })
     var factory={};
     factory.all=function () {
-        console.log(mails)
        return mails;
     }
-    factory.get=function (id) {
-        return mails.then(function (mails) {
-            for(var i=0;i<mails.lengh;i++){
-                if(mails[i].id==id) return mails[i];
+    factory.get = function (id) {
+        return mails.then(function(mails){
+            for (var i = 0; i < mails.length; i++) {
+                if (mails[i].id == id) return mails[i];
             }
             return null;
         })
-    }
+    };
+
     return factory;
 }])

@@ -46,7 +46,10 @@ angular.module('app')
                     .state('app.mail.detail',{
                         url:'/{mailId:[0-9]{1,4}}',
                         templateUrl:"tpls/mail.detail.html"
-                    })
+                    }).state('app.page.profile',{
+                        url:'/profile',
+                    templateUrl:"tpls/page_profile.html"
+                })
         }
         ]
     );

@@ -1,1 +1,57 @@
-<div ng-controller="MailDetailCtrl"></div>
+<div ng-controller="MailDetailCtrl">
+    <div class="wrapper bg-light lter b-b">
+        <a class="btn btn-default btn-sm w-xxs m-r-sm" ui-sref="app.mail.list">
+            <i class="fa fa-long-arrow-left"></i>
+        </a>
+        <div class="btn-group m-r-sm">
+            <button class="btn-default btn  btn-sm w-xxs w-auto-xs  " tooltip="存档">
+                <i class="fa fa-archive"></i>
+            </button>
+            <button class="btn-default btn  btn-sm w-xxs w-auto-xs" tooltip="反馈">
+                <i class="fa fa-exclamation-circle"></i>
+            </button>
+            <button class="btn-default btn  btn-sm w-xxs w-auto-xs m-r-sm" tooltip="删除">
+                <i class="fa fa-trash-o"></i>
+            </button>
+        </div>
+
+
+    </div>
+    <div class="wrapper b-b">
+        <h2 class="font-thin m-n">{{mail.subject}}</h2>
+    </div>
+    <div class="wrapper b-b">
+        <img ng-src="{{mail.avatar}}" class="img-circle thumb-xs m-r-sm">
+        from <a href> {{mail.from}}</a>on {{mail.date}}
+    </div>
+    <div class="wrapper">
+        {{mail.content}}
+    </div>
+    <div class="wrapper">
+        <div class="panel b-a inline m-r-sm m-b-sm bg-light" ng-repeat="attach in mail.attach">
+            <div class="wrapper-xs b-b"><i class="fa fa-paperclip"></i>{{attach.name}}</div>
+            <div class="wrapper-xs w-sm lt">
+                <a href="{{attach.url}}"><img src="{{attach.url}}" class="img-full"></a>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="panel b-a" >
+            <div class="panel-heading ng-show" ng-hide="reply">
+             <div class="m-b-lg">
+                 Click here to <a href ng-click="reply=!reply" class="text-u-l"> Reply </a>or <a href ng-click="reply=!reply" class="text-u-l">Forward</a>
+             </div>
+            </div>
+            <div class="ng-hide" ng-show="reply">
+                <div class="panel-heading b-b b-light">
+                    {{mail.from}}
+                </div>
+                <div class="wrapper" contenteditable="true" style="min-height: 100px;"></div>
+                <div class="panel-footer bg-light lt">
+                    <button class="btn btn-default pull-right" ng-click="reply=!reply"><i class="fa fa-trash-o"></i></button>
+                    <button class="btn btn-info w-xs font-bold">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
