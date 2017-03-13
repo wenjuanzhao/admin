@@ -46,7 +46,29 @@ angular.module('app')
                     .state('app.mail.detail',{
                         url:'/{mailId:[0-9]{1,4}}',
                         templateUrl:"tpls/mail.detail.html"
-                    }).state('app.page.profile',{
+                    }).state('apps',{
+                        abstract:true,
+                        templateUrl:'tpls/layout.html'
+                }).state('apps.note',{
+                    url:'/note',
+                    templateUrl:'tpls/apps_note.html',
+                    resolve:{
+                        deps:["uiLoad",function (uiLoad) {
+                           return uiLoad.load(['js/app/note/note.js',
+                               'vendor/libs/moment.min.js'])
+                        }]
+                    }
+                }).state('apps.contact',{
+                    url:'/contact',
+                    templateUrl:'tpls/apps_contact.html',
+                    resolve:{
+                        deps:["uiLoad",function (uiLoad) {
+                            return uiLoad.load(['js/app/contact/contact.js',
+                              ])
+                        }]
+                    }
+                })
+                    .state('app.page.profile',{
                         url:'/profile',
                     templateUrl:"tpls/page_profile.html"
                 })
