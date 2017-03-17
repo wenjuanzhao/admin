@@ -67,11 +67,33 @@ angular.module('app')
                               ])
                         }]
                     }
+                }).state('layout',{
+                    abstract:true,
+                    url:'/layout',
+                    templateUrl:'tpls/layout.html'
+                }).state('layout.app',{
+                    url:'/app',
+                    templateUrl:'tpls/layout_app.html',
+                    resolve:{deps:['uiLoad',function (uiLoad) {
+                        return  uiLoad.load(['js/controller/tab.js'])
+                    }]}
+                }).state('layout.mobile',{
+                    url:'/mobile',
+                    templateUrl:'tpls/layout_mobile.html',
                 })
                     .state('app.page.profile',{
                         url:'/profile',
-                    templateUrl:"tpls/page_profile.html"
+                    templateUrl:"tpls/page_profile.html",
+
                 })
+                    .state('app.ui',{
+                        url:'/ui',
+                        template:'<div ui-view class="fade-in-up"><div></div>'
+                    }).state('app.ui.buttons',{
+                    url:'/buttons',
+                    templateUrl:"tpls/ui_buttons.html",
+                })
+
         }
         ]
     );
